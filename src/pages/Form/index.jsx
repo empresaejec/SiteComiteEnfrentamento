@@ -1,16 +1,33 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './styles.css'
-function Form(){
+import {Formik} from 'formik'
+import Checkbox from '../../components/Checkbox'
 
-    const [cfp,setCpf] = useState('')
-    const [name,setName] = useState('')
-    const [birthday,setBirthday] = useState('')
-    const [city,setCity] = useState('')
-    const [uf,setUf] = useState('')
+function Form(){
     
     return(
-        <form>
-            <input type="text" name="cpf" className="form-text" onChange={setCpf} placeholder="CPF"/>
+        <Formik 
+            initialValues={{ text: [],radio:[] }}
+            onSubmit={values => alert(JSON.stringify(values, null, 2))}
+        >
+        {formik => (
+            <div>
+            Clicking checks affects `VALUES` and `ERRORS` but never `TOUCHED`...
+            <div>
+                <Checkbox name="text" value="admin" />
+                <Checkbox name="radio" value="customer" />
+            </div>
+            <br />
+            VALUES:
+            <pre>{JSON.stringify(formik.values, null, 2)}</pre>
+            ERRORS:
+            <pre>{JSON.stringify(formik.errors, null, 2)}</pre>
+            TOUCHED:
+            <pre>{JSON.stringify(formik.touched, null, 2)}</pre>
+            </div>
+        )}
+
+            {/* <input type="text" name="cpf" className="form-text" onChange={setCpf} placeholder="CPF"/>
 
             <input type="text" name="name" className="form-text" onChange={setName} placeholder="Nome"/>
 
@@ -95,8 +112,8 @@ function Form(){
                 <input type="checkbox" name="q14g" /> Náusea/ dor abdominal/ diarreia
             </span>
 
-            <button type="submit">Submit</button>
-        </form>
+            <button type="submit">Submit</button> */}
+        </Formik>
     )
 }
 

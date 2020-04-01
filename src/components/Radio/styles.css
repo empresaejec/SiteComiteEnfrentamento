@@ -1,0 +1,10 @@
+.question{
+  display: block;
+  width: auto;
+  color:#000;
+  font-size: 24px;
+}
+
+.option{
+  display: inline-block;
+}

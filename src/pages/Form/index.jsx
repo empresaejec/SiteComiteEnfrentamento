@@ -1,30 +1,88 @@
 import React from 'react'
 import './styles.css'
 import {Formik} from 'formik'
-import Checkbox from '../../components/Checkbox'
+import Radio from '../../components/Radio'
 
 function Form(){
     
     return(
         <Formik 
-            initialValues={{ text: [],radio:[] }}
+            initialValues={{
+                type:'false', 
+                cpf:"",     
+                name:"",
+                birthday:"",
+                city:"",
+                uf:"",
+
+                }}
             onSubmit={values => alert(JSON.stringify(values, null, 2))}
         >
-        {formik => (
-            <div>
-            Clicking checks affects `VALUES` and `ERRORS` but never `TOUCHED`...
-            <div>
-                <Checkbox name="text" value="admin" />
-                <Checkbox name="radio" value="customer" />
-            </div>
-            <br />
-            VALUES:
-            <pre>{JSON.stringify(formik.values, null, 2)}</pre>
-            ERRORS:
-            <pre>{JSON.stringify(formik.errors, null, 2)}</pre>
-            TOUCHED:
-            <pre>{JSON.stringify(formik.touched, null, 2)}</pre>
-            </div>
+        {({values,errors,touched,handleChange,handleBlur}) => (
+            <form className="form">
+                {JSON.stringify(values)}
+
+                <Radio
+                    name = 'type'
+                    question = "tomou vacina?"
+                />
+
+                <div>
+                    <input 
+                    type="text" 
+                    name="cpf" 
+                    className="form-text" 
+                    placeholder="CPF"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.cpf}/>
+                </div>
+
+                <div>
+                    <input 
+                    type="text" 
+                    name="name" 
+                    className="form-text"  
+                    placeholder="Nome"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.name}/>
+                </div>
+
+                <div>
+                    <input 
+                    type="text" 
+                    name="birthday" 
+                    className="form-date"
+                    placeholder="31/03/2020"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.birthday}/>
+                </div>
+
+                <div>
+                    <input 
+                    type="text" 
+                    name="city" 
+                    className="form-text"  
+                    placeholder="Cidade"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.city}/>
+                </div>
+
+                <div>
+                    <input 
+                    type="text" 
+                    name="uf" 
+                    className="form-text" 
+                    placeholder="UF"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.uf}/>
+                </div>
+            
+            </form>
         )}
 
             {/* <input type="text" name="cpf" className="form-text" onChange={setCpf} placeholder="CPF"/>

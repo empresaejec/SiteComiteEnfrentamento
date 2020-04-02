@@ -1,11 +1,11 @@
 import React from 'react';
-
 // Bootstrap
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 // Components
 import Radio from "../Radio/index";
+import Google from '../GoogleApi/index'
 
 // Formik
 import { useFormik } from 'formik';
@@ -36,14 +36,18 @@ const WholeForm = () => {
             q13:"false",
         },
         onSubmit: (values) => {
-            alert(JSON.stringify(values))
+            //alert(JSON.stringify(values))
+
+            if(formik.values.q1 === 'true'){
+                alert(JSON.stringify(values.q1))
+            }
         },
     })
 
     return(
         <Form onSubmit={formik.handleSubmit}>
             <h2>
-                Título do Formulário
+                Inquérito de direcionamento
             </h2>
             <p>
                 Descrição do formulário e de sua utilidade
@@ -157,6 +161,8 @@ const WholeForm = () => {
             />
 
             <Button type="submit">Verificar</Button>
+
+            <Google></Google>
             {/* <span>Quais desses sintomas você apresenta?
             <input type="checkbox" name="q14a" />Dificuldade para respirar
             <input type="checkbox" name="q14b" /> Febre maior ou igual a 38ºC

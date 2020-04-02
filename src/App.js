@@ -1,8 +1,13 @@
 import React from 'react';
-import Form from './pages/Form'
+import Main from './pages/Main';
+
+// Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
 function App() {
   return (
-    <Form></Form>
+    <Main />
   );
 }
 

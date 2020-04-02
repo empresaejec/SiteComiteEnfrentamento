@@ -1,0 +1,15 @@
+.top-navbar{
+    background: #1659bf;
+    border-bottom: 5px solid #0f4098;
+}
+.top-navbar img{
+    height: 80px;
+}
+.top-navbar h1{
+    align-self: flex-end;
+    font-family: 'Open sans';
+    color: #FFF;
+    font-weight: 700;
+    font-size: 2em;
+    letter-spacing: 0.4px;
+}

@@ -1,31 +1,56 @@
-import React from 'react'
-import {Field} from 'formik'
+import React from 'react';
+import PropTypes from 'prop-types';
+
+// Bootstrap
+import Form from 'react-bootstrap/Form';
+
+// Styles
 import "./styles.css"
 
-export default function Radio(props){
+const Radio = ({ question, options, ...props }) => {
   return (
-  <Field
-    name={props.nameValue}
-    render={({field})=>(
-        <div className="question"> 
-            <label htmlFor="question">{props.question}</label>
-          <input
-            {...field} 
-            className="option"
-            value= "true"
-            checked={field.value === "true"} 
-            name={props.nameValue}
-            type="radio" 
-          /> <label htmlFor="yes">{props.option1 ? props.option1 : "Sim"}</label>
-          <input
-            {...field} 
-            className="option"
-            value="false"
-            checked={field.value === 'false'} 
-            name={props.nameValue}
-            type="radio" 
-          /><label htmlFor="yes">{props.option1 ? props.option2 : "Nao"}</label>
-        </div>
-      )}
-    />
-)}
+    <Form.Group className="radio-group"> 
+      <label htmlFor="question">{question}</label>
+
+      <ul>
+        {options.map((option, idx) => (
+          <li key={`question-${props.name}-option-${idx}`}>
+            <input
+              {...props}
+              value={option.value}
+              checked={props.value === option.value}
+              type="radio"
+            />
+            <label htmlFor={props.name}>{option.label}</label>
+          </li>
+        ))}
+      </ul>
+    </Form.Group>
+  )
+}
+
+// Defines the types of the component's properties.
+Radio.propTypes = {
+  question: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.any.isRequired,
+    label: PropTypes.string.isRequired
+  })),
+}
+
+// Defines the default properties of component
+Radio.defaultProps = {
+  question: "",
+  options: [
+    {
+      value: "true",
+      label: "Sim"
+    },
+    {
+      value: "false",
+      label: "Não"
+    }
+  ]
+}
+
+export default Radio;

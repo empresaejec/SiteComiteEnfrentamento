@@ -1,0 +1,14 @@
+.radio-group ul{
+  list-style: none;
+  width: 100%;
+}
+
+.radio-group ul li label{
+  margin-left: 5px;
+}
+
+
+.radio-group ul li input{
+  color:#e5e;
+  background-color: #e5e;
+}

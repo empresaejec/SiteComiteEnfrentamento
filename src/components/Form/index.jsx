@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 
 // Components
 import Radio from "../Radio/index";
-import Google from '../GoogleApi/index'
+import Checkbox from '../Checkbox/index'
 
 // Formik
 import { useFormik } from 'formik';
@@ -34,13 +34,12 @@ const WholeForm = () => {
             q11:"false",
             q12:"false",
             q13:"false",
+            q14:[],
         },
         onSubmit: (values) => {
             //alert(JSON.stringify(values))
-
-            if(formik.values.q1 === 'true'){
-                alert(JSON.stringify(values.q1))
-            }
+            alert(values.q14[0])
+            
         },
     })
 
@@ -160,10 +159,36 @@ const WholeForm = () => {
                 {...formik.getFieldProps('q13')}
             />
 
+            <Checkbox
+                question = "Quais desses sintomas você apresenta?"
+                options = {[
+                    {
+
+                        label:"Dificuldade para respirar"
+                    },
+                    {
+
+                        label:'teste'
+                    },
+                    {
+
+                        label:'teste'
+                    },
+                    {
+
+                        label:'teste'
+                    }
+                ]}
+                value={formik.values.q14}
+                
+                {...formik.getFieldProps('q14')}
+            />
+
+
             <Button type="submit">Verificar</Button>
 
-            <Google></Google>
-            {/* <span>Quais desses sintomas você apresenta?
+            {/* 
+            Quais desses sintomas você apresenta?
             <input type="checkbox" name="q14a" />Dificuldade para respirar
             <input type="checkbox" name="q14b" /> Febre maior ou igual a 38ºC
             <input type="checkbox" name="q14c" /> Dores no corpo
@@ -171,9 +196,7 @@ const WholeForm = () => {
             <input type="checkbox" name="q14e" /> Coriza
             <input type="checkbox" name="q14f" /> Perda de olfato (não sente cheiros)
             <input type="checkbox" name="q14g" /> Náusea/ dor abdominal/ diarreia
-        </span>
-
-        <button type="submit">Submit</button> */}
+            */}
         </Form>
     )
 }

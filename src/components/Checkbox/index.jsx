@@ -7,14 +7,18 @@ import "./styles.css";
 const Checkbox = ({ checked, name, value, label, onChange }) => {
   return (
     <div className="form-checkbox">
-      <input 
-        type="checkbox"
-        name={name}
-        checked={checked}
-        value={value}
-        onChange={onChange}
-      />
-      <label>{label}</label>
+      <div>
+        <input 
+          type="checkbox"
+          name={name}
+          checked={checked}
+          value={value}
+          onChange={onChange}
+        />
+      </div>
+      <div>
+        <label>{label}</label>
+      </div>
     </div>
   )
 }

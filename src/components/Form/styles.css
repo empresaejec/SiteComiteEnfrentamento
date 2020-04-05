@@ -9,3 +9,19 @@ form .form-group{
     width: 100%;
     max-width: 400px;
 }
+
+.required-icon{
+    color: rgb(199, 58, 58);
+}
+
+.container{
+    min-height: 90%;
+}
+
+.loading-container{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

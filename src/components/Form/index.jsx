@@ -87,6 +87,7 @@ const WholeForm = () => {
                 <div>
                     {resultData[result].guidelines.map(guide => <p>{guide}</p>)}
                 </div>
+                <Button href="http://gtsaude.ararangua.ufsc.br/">Voltar para GT Saúde</Button>
             </div>
         )
     else return(

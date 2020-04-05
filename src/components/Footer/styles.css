@@ -1,0 +1,18 @@
+.app-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 10px;
+    height: 60px;
+    background: #1659bf;
+}
+
+.app-footer span{
+    margin: 0 5px 5px 0;
+    color: #FFF;
+    font-size: 10px;
+}
+
+.app-footer span a{
+    color: #FFF;
+}

@@ -12,7 +12,7 @@ import './styles.css';
 const NavBar = () => {
     return (
         <Navbar className="top-navbar" expand="lg">
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="https://gtsaude.ararangua.ufsc.br/">
                 <img src={logo} className="d-inline-block align-top" alt="UFSC" />
             </Navbar.Brand>
             <h1>Comitê de Enfrentamento e Combate a Epidemia do COVID-19</h1>

@@ -5,7 +5,34 @@ form{
     align-items: center;
 }
 
+form > h2{
+    text-align: center;
+}
+
 form .form-group{
     width: 100%;
     max-width: 400px;
+}
+
+.required-icon{
+    color: rgb(199, 58, 58);
+}
+
+.container{
+    min-height: 75%;
+}
+
+.loading-container{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-container{
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    max-width: 800px;
 }

@@ -1,0 +1,7 @@
+.form-checkbox{
+    display: flex;
+}
+
+.form-checkbox label{
+    margin-left: 5px;
+}

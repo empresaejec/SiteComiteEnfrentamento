@@ -11,7 +11,6 @@ const Radio = ({ question, options, ...props }) => {
   return (
     <Form.Group className="radio-group"> 
       <label htmlFor="question">{question}</label>
-
       <ul>
         {options.map((option, idx) => (
           <li key={`question-${props.name}-option-${idx}`}>

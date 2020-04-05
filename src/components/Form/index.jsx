@@ -21,24 +21,23 @@ const WholeForm = () => {
             birthday:"",
             city:"",
             uf:"",
-            q1:"false",
-            q2:"false",
-            q3:"false",
-            q4:"false",
-            q5:"false",
-            q6:"false",
-            q7:"false",
-            q8:"false",
-            q9:"false",
-            q10:"false",
-            q11:"false",
-            q12:"false",
-            q13:"false",
+            q1:"",
+            q2:"",
+            q3:"",
+            q4:"",
+            q5:"",
+            q6:"",
+            q7:"",
+            q8:"",
+            q9:"",
+            q10:"",
+            q11:"",
+            q12:"",
+            q13:"",
             q14:[],
         },
         onSubmit: (values) => {
-            //alert(JSON.stringify(values))
-            alert(values.q14[0])
+            alert(JSON.stringify(values))
             
         },
     })
@@ -159,44 +158,21 @@ const WholeForm = () => {
                 {...formik.getFieldProps('q13')}
             />
 
-            <Checkbox
-                question = "Quais desses sintomas você apresenta?"
-                options = {[
-                    {
-
-                        label:"Dificuldade para respirar"
-                    },
-                    {
-
-                        label:'teste'
-                    },
-                    {
-
-                        label:'teste'
-                    },
-                    {
-
-                        label:'teste'
-                    }
-                ]}
-                value={formik.values.q14}
-                
-                {...formik.getFieldProps('q14')}
-            />
+            <Form.Group>
+                <label className="question">
+                Quais desses sintomas você apresenta?
+                </label>
+                <Checkbox checked={formik.values.q14.includes("1")} onChange={formik.handleChange} name="q14" value="1" label="Dificuldade para respirar" />
+                <Checkbox checked={formik.values.q14.includes("2")} onChange={formik.handleChange} name="q14" value="2" label="Febre maior ou igual a 38ºC" />
+                <Checkbox checked={formik.values.q14.includes("3")} onChange={formik.handleChange} name="q14" value="3" label="Dores no corpo" />
+                <Checkbox checked={formik.values.q14.includes("4")} onChange={formik.handleChange} name="q14" value="4" label="Tosse" />
+                <Checkbox checked={formik.values.q14.includes("5")} onChange={formik.handleChange} name="q14" value="5" label="Coriza" />
+                <Checkbox checked={formik.values.q14.includes("6")} onChange={formik.handleChange} name="q14" value="6" label="Perda de olfato (não sente cheiros)" />
+                <Checkbox checked={formik.values.q14.includes("7")} onChange={formik.handleChange} name="q14" value="7" label="Náusea/ dor abdominal/ diarreia" />
+            </Form.Group>
 
 
             <Button type="submit">Verificar</Button>
-
-            {/* 
-            Quais desses sintomas você apresenta?
-            <input type="checkbox" name="q14a" />Dificuldade para respirar
-            <input type="checkbox" name="q14b" /> Febre maior ou igual a 38ºC
-            <input type="checkbox" name="q14c" /> Dores no corpo
-            <input type="checkbox" name="q14d" /> Tosse
-            <input type="checkbox" name="q14e" /> Coriza
-            <input type="checkbox" name="q14f" /> Perda de olfato (não sente cheiros)
-            <input type="checkbox" name="q14g" /> Náusea/ dor abdominal/ diarreia
-            */}
         </Form>
     )
 }

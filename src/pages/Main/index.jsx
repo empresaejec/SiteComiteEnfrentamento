@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 // Components
 import Form from '../../components/Form';
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 
 const Main  = () => {
     return (
@@ -14,6 +15,7 @@ const Main  = () => {
             <Container>
                 <Form />
             </Container>
+            <Footer />
         </>
     )
 };

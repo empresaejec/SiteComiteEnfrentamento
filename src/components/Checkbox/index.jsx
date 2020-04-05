@@ -1,50 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Bootstrap
-import Form from 'react-bootstrap/Form';
-
 // Styles
-// import "./styles.css"
-const Checkbox = ({question, options, ...props }) => {
-  return ( 
-    <div>
-      <label htmlFor="question">{question}</label>
-      {options.map((option,idx)=>(
-        <div key={props.name + idx}>
-          <label>{option.label}</label>
-          <input 
-          {...props}
-          type="checkbox" 
-          id={props.name +" "+ idx} 
-          name={props.name} 
-          onChange={(event) => {
-            const value = event.target.checked ? 'true' : 'false'
-            console.log('lalal')
-            }}
-          />
-        </div>
-        )
-      )}
-      <input type="checkbox" name={props.name}/>
+import "./styles.css";
+
+const Checkbox = ({ checked, name, value, label, onChange }) => {
+  return (
+    <div className="form-checkbox">
+      <input 
+        type="checkbox"
+        name={name}
+        checked={checked}
+        value={value}
+        onChange={onChange}
+      />
+      <label>{label}</label>
     </div>
   )
 }
 
 // Defines the types of the component's properties.
 Checkbox.propTypes = {
-  question: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired
-  })),
+  name: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 // Defines the default properties of component
 Checkbox.defaultProps = {
-  question: "",
-  options: [
-    {
-      label: ""
-    },
-  ]
+  name: "",
+  checked: "",
+  value: "",
+  label: "",
+  onChange: () => {},
 }
 export default Checkbox;
